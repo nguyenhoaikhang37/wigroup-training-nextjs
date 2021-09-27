@@ -29,6 +29,7 @@ const Register = () => {
 	const formSubmit = (e) => {
 		e.preventDefault();
 		setUser(query);
+		localStorage.setItem('user', query.userName);
 		router.push({
 			pathname: '/',
 		});

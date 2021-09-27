@@ -1,9 +1,18 @@
 import { useRecoilValue } from 'recoil';
 import { userState } from '../recoil/registerState';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 export default function Home() {
 	const user = useRecoilValue(userState);
+	const router = useRouter();
+
+	if (typeof window !== 'undefined') {
+		const isLogIn = localStorage.getItem('user');
+		if (!isLogIn) {
+			router.push('/signup');
+		}
+	}
 
 	return (
 		<>
