@@ -1,5 +1,5 @@
-import styles from '../styles/Register.module.css';
 import { ArrowRightIcon } from '@heroicons/react/outline';
+import InputField from '../../widgets/UI/InputField';
 
 const RegisterForm = ({ handleParam, formSubmit, query }) => {
 	return (
@@ -13,37 +13,33 @@ const RegisterForm = ({ handleParam, formSubmit, query }) => {
 					</span>
 				</p>
 				<form onSubmit={formSubmit}>
-					<input
-						name="userName"
-						type="text"
+					<InputField
 						placeholder="Username"
-						className={styles.inputForm}
+						className="rounded-xl"
+						name="userName"
 						value={query.userName}
 						onChange={handleParam()}
 					/>
 					<div className="grid grid-cols-2 gap-2">
-						<input
-							name="firstName"
-							type="text"
+						<InputField
 							placeholder="First name"
-							className={styles.inputForm}
+							name="firstName"
+							className="rounded-l-xl"
 							value={query.firstName}
 							onChange={handleParam()}
 						/>
-						<input
-							name="lastName"
-							type="text"
+						<InputField
 							placeholder="Last name"
-							className={styles.inputForm}
+							name="lastName"
+							className="rounded-r-xl"
 							value={query.lastName}
 							onChange={handleParam()}
 						/>
 					</div>
-					<input
-						name="email"
-						type="email"
+					<InputField
 						placeholder="Email"
-						className={styles.inputForm}
+						className="rounded-xl"
+						name="email"
 						value={query.email}
 						onChange={handleParam()}
 					/>
