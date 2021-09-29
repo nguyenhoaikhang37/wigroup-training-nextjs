@@ -25,10 +25,9 @@ const SignUp = () => {
 		}));
 	};
 
-	const formSubmit = (e) => {
+	const formSubmit = async (e) => {
 		e.preventDefault();
-		setUser(query);
-		localStorage.setItem('user', JSON.stringify(query));
+		await localStorage.setItem('user', JSON.stringify(query));
 		router.push({
 			pathname: '/',
 		});

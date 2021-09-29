@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useRecoilValue } from 'recoil';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
 import { userState } from '../../store/userState';
 
 const Home = () => {
-	const user = useRecoilValue(userState);
-	const [userLS, setUserLS] = useState(null);
+	const [user, setUser] = useRecoilState(userState);
 
 	useEffect(() => {
-		setUserLS(JSON.parse(localStorage.getItem('user')));
+		setUser(JSON.parse(localStorage.getItem('user')));
 	}, []);
 
 	return (
-		<div>
-			<div>
-				<p>Username: {user.userName || userLS?.userName}</p>
-				<p>First Name: {user.firstName || userLS?.firstName}</p>
-				<p>Last Name: {user.lastName || userLS?.lastName}</p>
-				<p>Email: {user.email || userLS?.email}</p>
-			</div>
-		</div>
+		<>
+			{user && (
+				<div>
+					<p>Username: {user.userName}</p>
+					<p>First Name: {user.firstName}</p>
+					<p>Last Name: {user.lastName}</p>
+					<p>Email: {user.email}</p>
+				</div>
+			)}
+		</>
 	);
 };
 
