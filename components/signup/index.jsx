@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { userState } from '../../store/userState';
 import RegisterForm from './components/RegisterForm';
+import Layout from '../Layout';
 
 const SignUp = () => {
 	const router = useRouter();
@@ -34,9 +35,9 @@ const SignUp = () => {
 	};
 
 	return (
-		<div>
+		<Layout>
 			<RegisterForm handleParam={handleParam} formSubmit={formSubmit} query={query} />
-		</div>
+		</Layout>
 	);
 };
 

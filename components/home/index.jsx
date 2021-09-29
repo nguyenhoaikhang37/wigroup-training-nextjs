@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { userState } from '../../store/userState';
+import Layout from '../Layout';
 
 const Home = () => {
 	const [user, setUser] = useRecoilState(userState);
@@ -10,7 +11,7 @@ const Home = () => {
 	}, []);
 
 	return (
-		<>
+		<Layout>
 			{user && (
 				<div>
 					<p>Username: {user.userName}</p>
@@ -19,7 +20,7 @@ const Home = () => {
 					<p>Email: {user.email}</p>
 				</div>
 			)}
-		</>
+		</Layout>
 	);
 };
 
